@@ -8,4 +8,4 @@
 ![Diagrama do Lucidchart](https://github.com/IgorDanielS/viaCep_ms/blob/main/UML.png)
 
 
-<p>Foi desenvolvido por Igor Daniel e Bruna Roberta</p>
+<p>Projeto desenvolvido por Igor Daniel e Bruna Roberta</p>
