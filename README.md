@@ -19,5 +19,7 @@ Este projeto utiliza a API ViaCep para obter dados de localização a partir de 
 
 ![Diagrama do Lucidchart](https://github.com/IgorDanielS/viaCep_ms/blob/main/UML.png)
 
-👨‍💻👩‍💻 Desenvolvedores:
-Projeto desenvolvido por Igor Daniel e Bruna Roberta.
+<h3>👨‍💻👩‍💻 Desenvolvedores:</h3>
+
+<p>Projeto desenvolvido por ![Igor Daniel](https://github.com/IgorDanielS) e ![Bruna Roberta](https://github.com/brunartt)
+</p>
