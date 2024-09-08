@@ -21,5 +21,5 @@ Este projeto utiliza a API ViaCep para obter dados de localização a partir de 
 
 <h3>👨‍💻👩‍💻 Desenvolvedores:</h3>
 
-<p>Projeto desenvolvido por ![Igor Daniel](https://github.com/IgorDanielS) e ![Bruna Roberta](https://github.com/brunartt)
-</p>
+<p>Projeto desenvolvido por <a href="https://github.com/IgorDanielS" >Igor Daniel</a> e <a href="https://github.com/brunartt" >Bruna Roberta</a></p>
+
