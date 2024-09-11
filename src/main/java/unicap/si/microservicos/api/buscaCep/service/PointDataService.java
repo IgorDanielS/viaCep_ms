@@ -1,6 +1,5 @@
 package unicap.si.microservicos.api.buscaCep.service;
 
-import org.apache.http.client.methods.HttpGet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unicap.si.microservicos.api.buscaCep.exception.CepNotFoundException;
