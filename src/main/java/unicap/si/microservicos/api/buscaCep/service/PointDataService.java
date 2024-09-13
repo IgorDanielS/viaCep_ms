@@ -6,6 +6,7 @@ import unicap.si.microservicos.api.buscaCep.exception.CepNotFoundException;
 import unicap.si.microservicos.api.buscaCep.model.PointData;
 import unicap.si.microservicos.api.buscaCep.repository.PointDataRepository;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,22 +16,28 @@ public class PointDataService {
     @Autowired
     private PointDataRepository pointDataRepository;
 
+    @Autowired
+    private ViaCepService viaCepService;
 
-    public void insertPointData(PointData pointData)
+    public PointData createPointData(PointData pointData)
     {
-        pointDataRepository.save(pointData);
+        return pointDataRepository.save(pointData);
     }
 
-    public void deletePointDataByCep(String cep) throws Exception
+    public PointData deletePointDataByCep(String cep) throws CepNotFoundException
     {
-        Optional<PointData> optionalPointData = pointDataRepository.findByCep(cep);
+        // A api retorna o cep no formato xxxxx-xxx
+        StringBuilder cepString = new StringBuilder(cep);
+        cepString.insert(5,"-");
+        Optional<PointData> optionalPointData = pointDataRepository.findByCep(cepString.toString());
 
         if(optionalPointData.isPresent())
         {
             pointDataRepository.delete(optionalPointData.get());
+            return optionalPointData.get();
         }else
         {
-            throw new Exception();
+            throw new CepNotFoundException("CEP not found");
         }
     }
 
@@ -59,6 +66,16 @@ public class PointDataService {
         }
         throw new CepNotFoundException("CEP not found");
     }
+
+    public PointData fetchAndSavePointData(String cep) throws CepNotFoundException {
+        PointData pointDataSearched = viaCepService.getCepInfo(cep);
+
+        if (pointDataSearched == null || pointDataSearched.getCep() == null) {
+            throw new CepNotFoundException("CEP not found");
+        }
+
+        return pointDataRepository.save(pointDataSearched);
+        }
 
 
 }
