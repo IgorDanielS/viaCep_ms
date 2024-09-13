@@ -6,7 +6,6 @@ import unicap.si.microservicos.api.buscaCep.exception.CepNotFoundException;
 import unicap.si.microservicos.api.buscaCep.model.PointData;
 import unicap.si.microservicos.api.buscaCep.repository.PointDataRepository;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,16 +52,17 @@ public class PointDataService {
         return optionalPointData.orElse(null);
     }
 
-    public boolean updatePointDataLogradouro(String cep, String logradouro) throws CepNotFoundException
+    public PointData updatePointDataLogradouro(String cep, String logradouro) throws CepNotFoundException
     {
-        Optional<PointData> optionalPointData = pointDataRepository.findByCep(cep);
+        StringBuilder cepString = new StringBuilder(cep);
+        cepString.insert(5,"-");
+        Optional<PointData> optionalPointData = pointDataRepository.findByCep(cepString.toString());
 
         if(optionalPointData.isPresent())
         {
             PointData pointData = optionalPointData.get();
             pointData.setLogadouro(logradouro);
-            pointDataRepository.save(pointData);
-            return true;
+            return pointDataRepository.save(pointData);
         }
         throw new CepNotFoundException("CEP not found");
     }

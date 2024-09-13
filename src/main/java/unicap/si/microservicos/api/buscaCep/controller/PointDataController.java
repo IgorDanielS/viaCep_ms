@@ -64,4 +64,20 @@ public class PointDataController {
 
     }
 
+    @PostMapping("cep/add")
+    public ResponseEntity<PointData> addPointData(@RequestBody PointData pointData)
+    {
+        return ResponseEntity.ok(pointDataService.createPointData(pointData));
+    }
+
+    @PutMapping("cep/{cep}")
+    public ResponseEntity<PointData> alterLogradouroPointData(@PathVariable String cep, @RequestBody String logradouro) throws CepNotFoundException
+    {
+        try {
+            return ResponseEntity.ok(pointDataService.updatePointDataLogradouro(cep, logradouro));
+        } catch (CepNotFoundException e) {
+            e.getMessage();
+            return null;
+        }
+    }
 }
