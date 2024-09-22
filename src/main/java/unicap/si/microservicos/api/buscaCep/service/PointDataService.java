@@ -25,10 +25,7 @@ public class PointDataService {
 
     public PointData deletePointDataByCep(String cep) throws CepNotFoundException
     {
-        // A api retorna o cep no formato xxxxx-xxx
-        StringBuilder cepString = new StringBuilder(cep);
-        cepString.insert(5,"-");
-        Optional<PointData> optionalPointData = pointDataRepository.findByCep(cepString.toString());
+        Optional<PointData> optionalPointData = pointDataRepository.findByCep(cep);
 
         if(optionalPointData.isPresent())
         {

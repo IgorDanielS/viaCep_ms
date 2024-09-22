@@ -51,15 +51,14 @@ public class PointDataController {
     }
 
     @DeleteMapping("/delete/{cep}")
-    public ResponseEntity<PointData> delete(@PathVariable String cep) throws CepNotFoundException {
+    public ResponseEntity<PointData> deleteByCep(@PathVariable String cep){
         logger.info("Recebendo requisição para deletar o CEP: {}", cep);
         try {
             PointData pointDeleted = pointDataService.deletePointDataByCep(cep);
-
             return ResponseEntity.ok(pointDeleted);
         } catch (CepNotFoundException e) {
-            e.getMessage();
-            return null;
+            logger.warn("CEP não encontrado: {}", cep);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
     }
