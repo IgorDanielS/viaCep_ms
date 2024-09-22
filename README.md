@@ -17,7 +17,7 @@ Este projeto utiliza a API ViaCep para obter dados de localização a partir de 
 
 <p>Abaixo, um diagrama UML para ilustrar o funcionamento da aplicação:</p>
 
-![Diagrama do Lucidchart]((https://github.com/IgorDanielS/viaCep_ms/blob/main/uml.png)
+![Diagrama do Lucidchart](https://github.com/IgorDanielS/viaCep_ms/blob/main/uml.png)
 
 <h3>👨‍💻👩‍💻 Desenvolvedores:</h3>
 
